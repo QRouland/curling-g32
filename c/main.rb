@@ -2,7 +2,7 @@
 
 #lib
 require 'gtk2' # lib graphique
-require 'net-ping' #lib netwotk
+#require 'net-ping' #lib netwotk
 
 #include
 require '../m/ReadFile'
