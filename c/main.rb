@@ -1,8 +1,8 @@
 #! /usr/bin/ruby
 
 #lib
-require '../lib/gtk2' # lib graphique
-require '../lib/net/ping' #lib netwotk
+require 'gtk2' # lib graphique
+require 'net-ping' #lib netwotk
 
 #include
 require '../m/ReadFile'
