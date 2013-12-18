@@ -3,14 +3,15 @@ class ReadFile
     @fic = File.open(pFic, "r")
   end
     
-  def getLines
-    i=0
-    tabLines = []
-    @fic.each_line { |ligne|
-      tabLines[i] = ligne
-      i = i + 1
-    }
-    return tabLines
+  def getALL
+    all = @fic.read
+    return all
+  end
+  
+  def getUrls
+    txt = self.getALL
+    url = txt.match /http[^\s]*/
+    return url
   end
 end
 
