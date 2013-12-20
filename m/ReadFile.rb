@@ -10,7 +10,7 @@ class ReadFile
   
   def getUrls
     txt = self.getALL
-    url = txt.match /http[^\s]*/
+	url = txt.scan(/http[^\s]*/)
     return url
   end
 end
