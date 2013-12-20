@@ -2,12 +2,13 @@
 
 #lib
 require 'gtk2' # lib graphique
-require 'net/http' #lib netwotk
-require 'uri'
+require 'net/ping' #lib netwotk
+
 #include
 require '../m/ReadFile'
 require '../v/Vue1'
 require '../v/VueError'
+
 
 
 Gtk.init
@@ -23,40 +24,24 @@ str = v1.getEntry
 if(File.exist?(str))
   f = ReadFile.new(str)
   url = f.getUrls
-  puts url
-  
 else
-    vd = VueError.new("Fichier inexistant")
-    vd.getDialog.run
-    vd.getDialog.destroy  
+  vd = VueError.new("Fichier inexistant")
+  vd.getDialog.run
+  vd.getDialog.destroy  
 end
 
+url.each { |n| 
+ p = Net::Ping::HTTP.new n , 80
+ if p.ping?
+  puts n + "is alive and kicking" 
+ else
+  puts n + "est mort"
+ end
+}
+
+ 
 
 
-
-
-# def ping(host)
-# begin
-#  url=URI.parse(host)
-#  start_time = Time.now
-#  response=Net::HTTP.get(url)
-#  end_time = Time.now - start_time
-#    if response==""
-#      return false
-#    else
-#      puts "response time : #{end_time}"
-#      return true
-#    end
-#    rescue Errno::ECONNREFUSED
-#      return false
-#  end
-# end
-# 
-# if(ping "")
-#   puts('vrai')
-# else
-#   puts('faux')
-# end
 
 
 
