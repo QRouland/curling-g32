@@ -10,7 +10,7 @@ require '../m/ReadFolder'
 require '../v/Vue1'
 require '../v/VueError'
 
-"../fichier/".liste_rep
+"../fichier/".liste_rep #à ajouter à vue 1
 
 Gtk.init
 v1 = Vue1.new
@@ -32,12 +32,12 @@ else
   vd.getDialog.destroy  
 end
 
-url.each { |n| 
+url.each { |n| # faire une vue affichage
  p = Net::Ping::HTTP.new n , 80
  if p.ping?
-  puts n + "est vivant" 
+  puts n + " est vivant" 
  else
-  puts n + "est mort"
+  puts n + " est mort"
  end
 }
 
