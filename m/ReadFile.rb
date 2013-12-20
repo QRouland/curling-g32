@@ -2,6 +2,8 @@ class ReadFile
   def initialize(pFic)
     @fic = File.open(pFic, "r")
   end
+  
+  
     
   def getALL
     all = @fic.read
@@ -15,6 +17,6 @@ class ReadFile
   end
 end
 
-class TestLink
 
-end
+
+

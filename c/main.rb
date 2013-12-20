@@ -6,10 +6,11 @@ require 'net/ping' #lib netwotk
 
 #include
 require '../m/ReadFile'
+require '../m/ReadFolder'
 require '../v/Vue1'
 require '../v/VueError'
 
-
+"../fichier/".liste_rep
 
 Gtk.init
 v1 = Vue1.new
@@ -20,6 +21,7 @@ v1.listenerDestroy
 v1.getWindow.show_all
 Gtk.main
 str = v1.getEntry
+str = "../fichier/" + str
 
 if(File.exist?(str))
   f = ReadFile.new(str)
@@ -33,7 +35,7 @@ end
 url.each { |n| 
  p = Net::Ping::HTTP.new n , 80
  if p.ping?
-  puts n + "is alive and kicking" 
+  puts n + "est vivant" 
  else
   puts n + "est mort"
  end
