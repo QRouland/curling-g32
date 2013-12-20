@@ -8,4 +8,4 @@ Albert Jeremy, Aviles Adrien, Geoffrey Sentost, Quentin Rouland
 Requiert :
 * Gtk2 : gem install gtk2
 * net/ping : gem install net-ping
-* regex : gem install regex
+

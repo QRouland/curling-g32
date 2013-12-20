@@ -9,3 +9,6 @@ Requiert :
 * Gtk2 : gem install gtk2
 * net/ping : gem install net-ping
 
+==========================================================================
+Lancement application :
+ruby c/main.rb
