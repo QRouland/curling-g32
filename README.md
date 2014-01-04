@@ -11,4 +11,8 @@ Requiert :
 
 ==========================================================================
 Lancement application :
-ruby c/main.rb
+ruby c/Main.rb
+
+Emplacement fichiers :
+actuellement les fichiers que l'on souhaitent traiter doivent se trouver dans
+le dossier fichier/ (txt ou html)
