@@ -61,16 +61,29 @@ class Vue1
     @chaine = " "
     @b.signal_connect('clicked'){ 
     @chaine = @nom.text.to_s
-    @chaine = "../fichier/" + @chaine
-    if(File.exist?(@chaine))
-      @ctrl.recupUrls(@chaine)
+    if (@chaine =="")
+      m = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,
+			    Gtk::MessageDialog::ERROR,
+			    Gtk::MessageDialog::BUTTONS_CLOSE,
+			    "Erreur : Veuillez saisir un fichier ou dossier !")
+	m.run
+	m.destroy  
     else
-      d = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,
-                           Gtk::MessageDialog::ERROR,
-                           Gtk::MessageDialog::BUTTONS_CLOSE,
-			   "Erreur :  Fichier inexistant")
-      d.run
-      d.destroy  
+      @chaine = "../fichier/" + @chaine
+      if(File.directory?(@chaine))
+	@ctrl.recupUrlsDoss(@chaine)
+      else
+	if(File.exist?(@chaine))
+	  @ctrl.recupUrls(@chaine)
+	else
+	  d = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,
+			      Gtk::MessageDialog::ERROR,
+			      Gtk::MessageDialog::BUTTONS_CLOSE,
+			      "Erreur :  Fichier ou dossier inexistant !")
+	  d.run
+	  d.destroy  
+	end
+      end
     end
     }
   end

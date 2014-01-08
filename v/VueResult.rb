@@ -15,7 +15,6 @@ class VueResult
     vb.pack_start(vh)
     
     @window.add(vb)
-    
     self.listenerDestroy
   end
   
