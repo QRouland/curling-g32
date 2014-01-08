@@ -1,0 +1,21 @@
+﻿(with WEBDIAGRAM)
+
+
+title Diagramme de Séquence Curling
+
+Utilisateur->Système: Entre un nom
+Système->+directory?: Vérifie si dossier ou fichier
+directory?-->-Système: Type
+alt Type = fichier
+    Système->+recupUrls: Envoie du fichier ouvert
+    recupUrls-->-Système: Renvoie les urls trouvées
+    Système-->Utilisateur: Affiche les résultats
+else Type = dossier
+    Système->each: Envoie des fichiers
+    loop tant qu'il y a un fichier
+        each-->Système: Nom du fichier à traiter
+        Système->+recupUrls: Envoie du fichier ouvert
+        recupUrls-->-Système: Renvoie les urls trouvées
+        Système-->Utilisateur: Affiche les résultats
+    end
+end
