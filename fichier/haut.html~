@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf8" />
+	<link rel="stylesheet" type="text/css" href="style/styles.css">
+	
+	<title>Boutique Marchande sur le Web</title>
+</head>
+<body>
+	<div id="bandeau">
+		<h1>Boutique marchande</h1>
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="http://index.php">Accueil</a></li>
+			<li><a href="http://consultprod.php">Consultation des promotions et nouveautés</a></li>
+			<li><a href="http://consultcat.php">Consultation des produits par catégorie</a></li>
+			<li><a href="http://recherche.php">Recherche d’un produit à commander (client nouveau)</a></ul>
+	</div>
+	<div id="contenu">

@@ -1,7 +1,7 @@
 class VueResult
-  def initialize(liste_result)
+  def initialize(liste_result, nom)
     @window = Gtk::Window.new
-    @window.set_title('Resultats')
+    @window.set_title(nom)
     
     vb = Gtk::VBox.new(true, 6)
     vh = Gtk::HBox.new(false, 6)
@@ -21,6 +21,7 @@ class VueResult
   def getWindow
     return @window
   end
+
   def listenerDestroy
     @window.signal_connect('destroy') {
     @window.destroy

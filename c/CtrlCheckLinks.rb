@@ -13,7 +13,7 @@ class CtrlCheckLinks
   def recupUrls(str)
     f = ReadFile.new(str)
     @urls = f.getUrls
-    self.vueResult(self.verifLiens(@urls))
+    self.vueResult(self.verifLiens(@urls), str)
   end
   
   def recupUrlsDoss(str)
@@ -45,8 +45,8 @@ class CtrlCheckLinks
     return resultats	
   end
   
-  def vueResult(resultats)
-    v = VueResult.new(resultats)
+  def vueResult(resultats, nom)
+    v = VueResult.new(resultats, nom)
     v.getWindow.show_all
     Gtk.main
     
