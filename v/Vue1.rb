@@ -66,23 +66,26 @@ class Vue1
 			    Gtk::MessageDialog::ERROR,
 			    Gtk::MessageDialog::BUTTONS_CLOSE,
 			    "Erreur : Veuillez saisir un fichier ou dossier !")
-	m.run
-	m.destroy  
+	     m.run
+	     m.destroy  
     else
       @chaine = "../fichier/" + @chaine
       if(File.directory?(@chaine))
-	@ctrl.recupUrlsDoss(@chaine)
+        
+          @ctrl.recupUrlsDoss(@chaine)
+        
+
       else
-	if(File.exist?(@chaine))
-	  @ctrl.recupUrls(@chaine)
-	else
-	  d = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,
-			      Gtk::MessageDialog::ERROR,
-			      Gtk::MessageDialog::BUTTONS_CLOSE,
-			      "Erreur :  Fichier ou dossier inexistant !")
-	  d.run
-	  d.destroy  
-	end
+      	if(File.exist?(@chaine))
+      	  @ctrl.recupUrls(@chaine)
+      	else
+      	  d = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,
+      			      Gtk::MessageDialog::ERROR,
+      			      Gtk::MessageDialog::BUTTONS_CLOSE,
+      			      "Erreur :  Fichier ou dossier inexistant !")
+      	  d.run
+      	  d.destroy  
+	       end
       end
     end
     }

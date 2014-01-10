@@ -1,4 +1,4 @@
-class VueResult
+  class VueResult
   def initialize(liste_result, nom)
     @window = Gtk::Window.new
     @window.set_title(nom)
