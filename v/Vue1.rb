@@ -1,6 +1,9 @@
 # Classe creation de la vue de sélection de fichier ou dossier
 class Vue1
-  # Creation de la vue
+  # <b>Creation de la vue</b>
+  # * CtrlCheckLinks ctrl : controleur de la vue
+  # * String title : titre de la vue
+  # * int type : vue pour un fichier (==1) sinon pour un dossier
   def initialize(ctrl, title, type)
     @ctrl = ctrl
     #fenenetre generale
@@ -11,11 +14,11 @@ class Vue1
     vb = Gtk::VBox.new(true, 6)
     bot = Gtk::HBox.new(false, 6)
     
-    #creation label pour la saisie
+    #creation de label pour la saisie
     lab = Gtk::Label.new('Chemin :')
     bot.pack_start(lab, false, true, 6)
     
-    #creation champ de saisie
+    #creation du champ de saisie
     #@nom = Gtk::Entry.new
     if (type == 1)
       @nom = Gtk::FileChooserButton.new("choisir un fichier", Gtk::FileChooser::ACTION_OPEN)
@@ -46,14 +49,14 @@ class Vue1
     return @chaine
   end
   
-  # Listener fermeture fenetre 
+  # <b>Listener fermeture fenetre</b> 
   def listenerDestroy 
     @window.signal_connect('destroy') {
       @ctrl.destructionFen
     }
   end
 
-  #Listener appuie bouton validation
+  # <b>Listener appuie bouton validation -> test liens fichier </b>
   def listenerBouton 
     @chaine = " "
     @b.signal_connect('clicked'){ 
@@ -66,10 +69,10 @@ class Vue1
 	     m.run
 	     m.destroy  
     else
-      if(File.directory?(@chaine)) #si c'est un dossier utilisation du controleur adéquat
+      if(File.directory?(@chaine)) #si c'est un dossier -> utilisation du controleur adéquat
           @ctrl.recupUrlsDoss(@chaine)
       else
-      	if(File.exist?(@chaine))  #si c'est un fichier existant utilisation du controleur adéquat
+      	if(File.exist?(@chaine))  #si c'est un fichier -> existant utilisation du controleur adéquat
       	  @ctrl.recupUrls(@chaine)
       	else #gestion saisie invalide
       	  d = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,

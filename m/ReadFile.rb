@@ -1,15 +1,18 @@
 #Classe permettant l'acces et la recuperation des données dans les fichiers
 class ReadFile
-  #Ouverture d'un fichier en lecture
+  # <b>Ouverture d'un fichier en lecture</b>
+  # * String pFic : chemin de fichier à ouvrir
   def initialize(pFic) 
     @fic = File.open(pFic, "r")
   end
-  #Revoit tout le contenu d'un fichier sous forme d'une chaine de caractere
+  # <b>Revoit tout le contenu d'un fichier sous forme d'une chaine de caractere</b>
+  # * return : string contenant tout le texte du fichier
   def getALL 
     all = @fic.read
     return all
   end
-  #Sort les URLs d'un fichier
+  # <b>Sort les URLs d'un fichier</b>
+  # * return : string[] contenant tout les liens http/https du fichier
   def getUrls 
     txt = self.getALL
     url = URI::extract(txt, /http(s)?/)

@@ -13,35 +13,40 @@ require '../v/VueResult'
 require '../v/VueMenu'
 require '../v/VueHisto'
 
-#Classe principal du controleur main
-class Main
-	# Controleur du menu de départ
-	def menu 
-	
+#Controleur du menu principal de l'application
+class Menu
+	# <b>Controleur du menu d'acceuil VueMenu</b>
+	def initialize
 		@v = VueMenu.new(self,"Menu")
 		@v.getWindow.show_all # affichage
 	    Gtk.main
 	end
 
-	# Controleur historique
+	#  <b>Acces au controleur CtrlHistoLink</b>
 	def histo 
+		@v.getWindow.hide_all #cache le menu
 		c = CtrlHistoLink.new
 		urls = c.saisie
+		@v.getWindow.show_all #reaffiche le menu
 	end
 
-	# Controleur vérification d'un fichier
+	# <b>Acces au controleur vérification d'un fichier CtrlCheckLinks</b>
 	def newVerifFile 
+		@v.getWindow.hide_all #cache le menu
 		c = CtrlCheckLinks.new
- 		urls = c.saisie(1)
+ 		urls = c.saisie(1, 'Saisie nom fichier')
+ 		@v.getWindow.show_all #reaffiche le menu
 	end
 
-	# Controleur vérification d'un dossier
+	# <b>Acces au controleur vérification d'un dossier CtrlCheckLinks</b>
 	def newVerifDossier 
+		@v.getWindow.hide_all #cache le menu
 		c = CtrlCheckLinks.new
- 		urls = c.saisie(0)
+ 		urls = c.saisie(0, 'Saisie nom dossier')
+ 		@v.getWindow.show_all #reaffiche le menu
 	end
 
-	# Controleur permettant de detruire la vue menu
+	# <b>Controleur permettant de detruire la VueMenu</b>
 	def destructionMenu
     	@v.getWindow.destroy
     	Gtk.main_quit
@@ -49,7 +54,6 @@ class Main
 	
 end
 
-c = Main.new
-c.menu
+Menu.new
 
 print "Termine\n"

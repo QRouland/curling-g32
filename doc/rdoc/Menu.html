@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: Menu</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./c/Main_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="c/Main.rb">c/Main.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-destructionMenu">#destructionMenu</a></li>
+          
+          <li><a href="#method-i-histo">#histo</a></li>
+          
+          <li><a href="#method-i-newVerifDossier">#newVerifDossier</a></li>
+          
+          <li><a href="#method-i-newVerifFile">#newVerifFile</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./CtrlCheckLinks.html">CtrlCheckLinks</a></li>
+        
+          <li><a href="./CtrlHistoLink.html">CtrlHistoLink</a></li>
+        
+          <li><a href="./Menu.html">Menu</a></li>
+        
+          <li><a href="./ReadFile.html">ReadFile</a></li>
+        
+          <li><a href="./Vue1.html">Vue1</a></li>
+        
+          <li><a href="./VueHisto.html">VueHisto</a></li>
+        
+          <li><a href="./VueMenu.html">VueMenu</a></li>
+        
+          <li><a href="./VueResult.html">VueResult</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Menu</h1>
+
+    <div id="description" class="description">
+      
+<p>Controleur du menu principal de l’application</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><b>Controleur du menu d'acceuil <a href="VueMenu.html">VueMenu</a></b></p>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File c/Main.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+        <span class="ruby-ivar">@v</span> = <span class="ruby-constant">VueMenu</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-string">&quot;Menu&quot;</span>)
+        <span class="ruby-ivar">@v</span>.<span class="ruby-identifier">getWindow</span>.<span class="ruby-identifier">show_all</span> <span class="ruby-comment"># affichage</span>
+    <span class="ruby-constant">Gtk</span>.<span class="ruby-identifier">main</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="destructionMenu-method" class="method-detail ">
+          <a name="method-i-destructionMenu"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">destructionMenu</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><b>Controleur permettant de detruire la <a
+href="VueMenu.html">VueMenu</a></b></p>
+            
+
+            
+            <div class="method-source-code" id="destructionMenu-source">
+<pre>
+<span class="ruby-comment"># File c/Main.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">destructionMenu</span>
+<span class="ruby-ivar">@v</span>.<span class="ruby-identifier">getWindow</span>.<span class="ruby-identifier">destroy</span>
+<span class="ruby-constant">Gtk</span>.<span class="ruby-identifier">main_quit</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- destructionMenu-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- destructionMenu-method -->
+
+      
+        <div id="histo-method" class="method-detail ">
+          <a name="method-i-histo"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">histo</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><b>Acces au controleur <a href="CtrlHistoLink.html">CtrlHistoLink</a></b></p>
+            
+
+            
+            <div class="method-source-code" id="histo-source">
+<pre>
+<span class="ruby-comment"># File c/Main.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">histo</span> 
+        <span class="ruby-ivar">@v</span>.<span class="ruby-identifier">getWindow</span>.<span class="ruby-identifier">hide_all</span> <span class="ruby-comment">#cache le menu</span>
+        <span class="ruby-identifier">c</span> = <span class="ruby-constant">CtrlHistoLink</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">urls</span> = <span class="ruby-identifier">c</span>.<span class="ruby-identifier">saisie</span>
+        <span class="ruby-ivar">@v</span>.<span class="ruby-identifier">getWindow</span>.<span class="ruby-identifier">show_all</span> <span class="ruby-comment">#reaffiche le menu</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- histo-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- histo-method -->
+
+      
+        <div id="newVerifDossier-method" class="method-detail ">
+          <a name="method-i-newVerifDossier"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">newVerifDossier</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><b>Acces au controleur vérification d’un dossier <a
+href="CtrlCheckLinks.html">CtrlCheckLinks</a></b></p>
+            
+
+            
+            <div class="method-source-code" id="newVerifDossier-source">
+<pre>
+<span class="ruby-comment"># File c/Main.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">newVerifDossier</span> 
+        <span class="ruby-ivar">@v</span>.<span class="ruby-identifier">getWindow</span>.<span class="ruby-identifier">hide_all</span> <span class="ruby-comment">#cache le menu</span>
+        <span class="ruby-identifier">c</span> = <span class="ruby-constant">CtrlCheckLinks</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">urls</span> = <span class="ruby-identifier">c</span>.<span class="ruby-identifier">saisie</span>(<span class="ruby-value">0</span>, <span class="ruby-string">'Saisie nom dossier'</span>)
+        <span class="ruby-ivar">@v</span>.<span class="ruby-identifier">getWindow</span>.<span class="ruby-identifier">show_all</span> <span class="ruby-comment">#reaffiche le menu</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- newVerifDossier-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- newVerifDossier-method -->
+
+      
+        <div id="newVerifFile-method" class="method-detail ">
+          <a name="method-i-newVerifFile"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">newVerifFile</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><b>Acces au controleur vérification d’un fichier <a
+href="CtrlCheckLinks.html">CtrlCheckLinks</a></b></p>
+            
+
+            
+            <div class="method-source-code" id="newVerifFile-source">
+<pre>
+<span class="ruby-comment"># File c/Main.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">newVerifFile</span> 
+        <span class="ruby-ivar">@v</span>.<span class="ruby-identifier">getWindow</span>.<span class="ruby-identifier">hide_all</span> <span class="ruby-comment">#cache le menu</span>
+        <span class="ruby-identifier">c</span> = <span class="ruby-constant">CtrlCheckLinks</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">urls</span> = <span class="ruby-identifier">c</span>.<span class="ruby-identifier">saisie</span>(<span class="ruby-value">1</span>, <span class="ruby-string">'Saisie nom fichier'</span>)
+        <span class="ruby-ivar">@v</span>.<span class="ruby-identifier">getWindow</span>.<span class="ruby-identifier">show_all</span> <span class="ruby-comment">#reaffiche le menu</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- newVerifFile-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- newVerifFile-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

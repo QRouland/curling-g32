@@ -1,6 +1,8 @@
 # Classe creation de la vue permettant d'aceder a l'historique
 class VueHisto
-  # Creation de la vue
+  # <b>Creation de la vue</b>
+  # * CtrlCheckHisto ctrl : controleur de la vue
+  # * String title : titre de la vue
   def initialize(ctrl, title)
     @ctrl = ctrl
     #fenenetre generale
@@ -41,14 +43,14 @@ class VueHisto
     return @chaine
   end
   
-  # Listener fermeture fenetre
+  # <b>Listener fermeture fenetre</b>
   def listenerDestroy 
     @window.signal_connect('destroy') {
       @ctrl.destructionFen
     }
   end
 
-  #Listener appuie bouton validation
+  # <b>Listener appuie bouton validation -> test liens fichier </b>
   def listenerBouton 
     @chaine = " "
     @b.signal_connect('clicked'){ 

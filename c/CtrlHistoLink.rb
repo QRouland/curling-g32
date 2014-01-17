@@ -1,27 +1,29 @@
-#Classe permettant de g"rer l'historique de fichier traité
+#Classe permettant de gzrer l'historique de fichier traité et la vue VueHisto
 class CtrlHistoLink
-	#Saisie pour vérification de lien stocké en historique
+	# <b>Saisie pour vérification de lien stocké en historique, controleur VueHisto</b>
   	def saisie 
 		@v = VueHisto.new(self,"Historique") #creation vue 
 		@v.getWindow.show_all # affichage
 		Gtk.main
-		return @urls
   	end
-  	#Sauvegarde les liens dans un fichier pour historique
-	def sauv(fileName, urls)  
-		fileName = File.basename(fileName)
-		f = File.new("../sauv/#{fileName}", "w+")
+  	# <b>Sauvegarde les liens dans un fichier pour historique</b>
+  	# * String pathName : chemin du fichier à mettre en historique
+  	# * String urls : liste urls à sauver dans l'historique
+	def sauv(pathName, urls)  
+		pathName = File.basename(pathName)
+		f = File.new("../sauv/#{pathName}", "w+")
 		f.write(urls)
 		f.close
 	end
 
-	#Permet de rejouer les liens d'un fichier
-	def rejouer(fileName)
+	# <b>Permet de rejouer les liens d'un fichier</b>
+	# * Sting pathName : chemin du fichier de l'historique à rejouer
+	def rejouer(pathName)
 		r = CtrlCheckLinks.new
-		@urls = r.recupUrls(fileName)
+		@urls = r.recupUrls(pathName)
 	end
 
-	#Controleur permettant de detruire la vue historique
+	# <b>Controleur permettant de detruire la vue historique</b>
 	def destructionFen  
     	@v.getWindow.destroy
     	Gtk.main_quit

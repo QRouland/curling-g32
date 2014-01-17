@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: VueMenu</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./v/VueMenu_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="v/VueMenu.rb">v/VueMenu.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-listenerBoutonHisto">#listenerBoutonHisto</a></li>
+          
+          <li><a href="#method-i-listenerBoutonNewDossier">#listenerBoutonNewDossier</a></li>
+          
+          <li><a href="#method-i-listenerBoutonNewFile">#listenerBoutonNewFile</a></li>
+          
+          <li><a href="#method-i-listenerDestroy">#listenerDestroy</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./CtrlCheckLinks.html">CtrlCheckLinks</a></li>
+        
+          <li><a href="./CtrlHistoLink.html">CtrlHistoLink</a></li>
+        
+          <li><a href="./Menu.html">Menu</a></li>
+        
+          <li><a href="./ReadFile.html">ReadFile</a></li>
+        
+          <li><a href="./Vue1.html">Vue1</a></li>
+        
+          <li><a href="./VueHisto.html">VueHisto</a></li>
+        
+          <li><a href="./VueMenu.html">VueMenu</a></li>
+        
+          <li><a href="./VueResult.html">VueResult</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">VueMenu</h1>
+
+    <div id="description" class="description">
+      
+<p>Classe creation vue du menu</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(ctrl, title)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><b>Creation de la vue</b></p>
+<ul><li>
+<p><a href="Menu.html">Menu</a> ctrl : controleur de la vue</p>
+</li><li>
+<p>String title : titre de la vue</p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File v/VueMenu.rb, line 6</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">ctrl</span>, <span class="ruby-identifier">title</span>)
+      <span class="ruby-ivar">@ctrl</span> = <span class="ruby-identifier">ctrl</span>
+  <span class="ruby-comment">#fenenetre generale</span>
+  <span class="ruby-ivar">@window</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Window</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@window</span>.<span class="ruby-identifier">set_title</span>(<span class="ruby-identifier">title</span>)
+  
+  <span class="ruby-comment">#declaration des differents widgets</span>
+  <span class="ruby-identifier">vb</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">VBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">6</span>)
+  <span class="ruby-identifier">top</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">HBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>, <span class="ruby-value">6</span>)
+  
+  
+  
+  <span class="ruby-comment">#creation boutons</span>
+  <span class="ruby-ivar">@newFile</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'Nouveau test fichier'</span>)
+  <span class="ruby-ivar">@newDoss</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'Nouveau test dossier'</span>)
+  <span class="ruby-ivar">@histo</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'Histo'</span>)
+ 
+  <span class="ruby-identifier">top</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@newFile</span>)
+  <span class="ruby-identifier">top</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@newDoss</span>)
+  <span class="ruby-identifier">top</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-ivar">@histo</span>)
+  <span class="ruby-identifier">vb</span>.<span class="ruby-identifier">pack_start</span>(<span class="ruby-identifier">top</span>)
+  <span class="ruby-comment">##############################</span>
+  
+  <span class="ruby-ivar">@window</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">vb</span>)
+  
+  <span class="ruby-comment"># Abbonement fenetre au Listener</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">listenerBoutonNewFile</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">listenerBoutonNewDossier</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">listenerBoutonHisto</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">listenerDestroy</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="listenerBoutonHisto-method" class="method-detail ">
+          <a name="method-i-listenerBoutonHisto"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">listenerBoutonHisto</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><b>Listener appuie bouton validation pour rejouer un fichier dans de
+l'historique</b></p>
+            
+
+            
+            <div class="method-source-code" id="listenerBoutonHisto-source">
+<pre>
+<span class="ruby-comment"># File v/VueMenu.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">listenerBoutonHisto</span>
+      <span class="ruby-ivar">@histo</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">'clicked'</span>){ 
+              <span class="ruby-ivar">@ctrl</span>.<span class="ruby-identifier">histo</span>
+      }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- listenerBoutonHisto-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- listenerBoutonHisto-method -->
+
+      
+        <div id="listenerBoutonNewDossier-method" class="method-detail ">
+          <a name="method-i-listenerBoutonNewDossier"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">listenerBoutonNewDossier</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><b>Listener appuie bouton validation nouvelle vérification de 1 dossier</b></p>
+            
+
+            
+            <div class="method-source-code" id="listenerBoutonNewDossier-source">
+<pre>
+<span class="ruby-comment"># File v/VueMenu.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">listenerBoutonNewDossier</span>
+      <span class="ruby-ivar">@newDoss</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">'clicked'</span>){ 
+              <span class="ruby-ivar">@ctrl</span>.<span class="ruby-identifier">newVerifDossier</span>
+      }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- listenerBoutonNewDossier-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- listenerBoutonNewDossier-method -->
+
+      
+        <div id="listenerBoutonNewFile-method" class="method-detail ">
+          <a name="method-i-listenerBoutonNewFile"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">listenerBoutonNewFile</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><b>Listener appuie bouton nouvelle vérification de 1 fichier</b></p>
+            
+
+            
+            <div class="method-source-code" id="listenerBoutonNewFile-source">
+<pre>
+<span class="ruby-comment"># File v/VueMenu.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">listenerBoutonNewFile</span>
+      <span class="ruby-ivar">@newFile</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">'clicked'</span>){ 
+              <span class="ruby-ivar">@ctrl</span>.<span class="ruby-identifier">newVerifFile</span>
+      }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- listenerBoutonNewFile-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- listenerBoutonNewFile-method -->
+
+      
+        <div id="listenerDestroy-method" class="method-detail ">
+          <a name="method-i-listenerDestroy"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">listenerDestroy</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><b>Listener fermeture fenetre <a href="Menu.html">Menu</a></b></p>
+            
+
+            
+            <div class="method-source-code" id="listenerDestroy-source">
+<pre>
+<span class="ruby-comment"># File v/VueMenu.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">listenerDestroy</span> 
+  <span class="ruby-ivar">@window</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">'destroy'</span>) {
+     <span class="ruby-ivar">@ctrl</span>.<span class="ruby-identifier">destructionMenu</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- listenerDestroy-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- listenerDestroy-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

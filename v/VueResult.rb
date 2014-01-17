@@ -1,10 +1,12 @@
   # Classe creation de la vue des resultats
   class VueResult
-  # Creation de la vue
-  def initialize(liste_result, nom)
+  # <b>Creation de la vue</b>
+  # * String liste_result : contient les resultats a afficher
+  # * String title : titre de la vue
+  def initialize(liste_result, title)
     #fenenetre generale
     @window = Gtk::Window.new
-    @window.set_title(nom)
+    @window.set_title(title)
     
     #declaration des differents widgets
     vb = Gtk::VBox.new(true, 6)
@@ -28,7 +30,7 @@
     return @window
   end
 
-  # Listener fermeture Resultat
+  # <b>Listener fermeture Resultat</b>
   def listenerDestroy 
     @window.signal_connect('destroy') {
       @window.destroy

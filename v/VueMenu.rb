@@ -1,6 +1,8 @@
 #Classe creation vue du menu
 class VueMenu
-	# Creation de la vue
+	# <b>Creation de la vue</b>
+  # * Menu ctrl : controleur de la vue
+  # * String title : titre de la vue
 	def initialize(ctrl, title)
   	@ctrl = ctrl
     #fenenetre generale
@@ -36,25 +38,25 @@ class VueMenu
   def getWindow #:nodoc:#
       return @window
   end
-  #Listener appuie bouton nouvelle vérification de 1 fichier
+  # <b>Listener appuie bouton nouvelle vérification de 1 fichier</b>
   def listenerBoutonNewFile
   	@newFile.signal_connect('clicked'){ 
   		@ctrl.newVerifFile
   	}
   end
-  #Listener appuie bouton validation nouvelle vérification de 1 dossier
+  # <b>Listener appuie bouton validation nouvelle vérification de 1 dossier</b>
   def listenerBoutonNewDossier
   	@newDoss.signal_connect('clicked'){ 
   		@ctrl.newVerifDossier
   	}
   end
-  #Listener appuie bouton validation pour rejouer un fichier dans de l'historique
+  # <b>Listener appuie bouton validation pour rejouer un fichier dans de l'historique</b>
   def listenerBoutonHisto
-  	@histo.signal_connect('clicke d'){ 
+  	@histo.signal_connect('clicked'){ 
   		@ctrl.histo
   	}
   end
-	# Listener fermeture fenetre Menu
+	# <b>Listener fermeture fenetre Menu</b>
   def listenerDestroy 
     @window.signal_connect('destroy') {
        @ctrl.destructionMenu
