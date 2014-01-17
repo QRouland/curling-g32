@@ -73,7 +73,16 @@ class Vue1
           @ctrl.recupUrlsDoss(@chaine)
       else
       	if(File.exist?(@chaine))  #si c'est un fichier -> existant utilisation du controleur adéquat
-      	  @ctrl.recupUrls(@chaine)
+          if(File.extname(@chaine)== ".txt" || File.extname(@chaine)== ".html" )
+      	    @ctrl.recupUrls(@chaine)
+          else
+            i = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,
+                  Gtk::MessageDialog::ERROR,
+                  Gtk::MessageDialog::BUTTONS_CLOSE,
+                  "Erreur : fichier extension invalide !")  
+            i.run
+            i.destroy  
+          end
       	else #gestion saisie invalide
       	  d = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,
       			      Gtk::MessageDialog::ERROR,
