@@ -1,22 +1,23 @@
+# Controleur de la vérification de la validité des liens ainsi que les vues correspondantes
 class CtrlCheckLinks
-  def saisie
-    liste_dir = "../fichier/".liste_rep 
-    #Va checher les fichiers et arborecenses dans le dossier fichier (Méthode dans ReadFolder)
-    Gtk.init
-    @v1 = Vue1.new(liste_dir, self)
-    @v1.getWindow.show_all
+  #Controleur de la saisie pour vérification de lien 
+  def saisie(type) 
+    @v1 = Vue1.new(self, 'Saisie nom fichier', type) #creation vue principal
+    @v1.getWindow.show_all # affichage
     Gtk.main
-    
     return @urls
   end
-  
-  def recupUrls(str)
+  #Controleur recuperation et verification de liens dans 1 fichiers
+  def recupUrls(str) 
     f = ReadFile.new(str)
     @urls = f.getUrls
     self.vueResult(self.verifLiens(@urls), str)
+    s = CtrlHistoLink.new #on enregistre dans l'histo le verif du lien
+    s.sauv(str, @urls)
+    return @urls
   end
-  
-  def recupUrlsDoss(str)
+  #Controleur recuperation et verification de liens dans 1 dossier
+  def recupUrlsDoss(str) 
     d = Dir.open(str)
     liste_exclus = [".", ".."]
     liste_dir = d.sort - liste_exclus
@@ -24,18 +25,18 @@ class CtrlCheckLinks
       if (File.ftype(str + "/" + fichier) == "file")
           self.recupUrls(str + "/" + fichier)
       end
-     }            
+     }             
   end
-  
-  def destructionFen
+  #Controleur permettant de detruire la vue principal
+  def destructionFen 
     @v1.getWindow.destroy
     Gtk.main_quit
   end
-  
-  def verifLiens(urls)
-    resultats = ""
-    urls.each { |n| 
-    p = Net::Ping::HTTP.new n , 80
+  #Controleur de verification de liens
+  def verifLiens(urls) 
+    resultats = "" 
+    urls.each { |n| # pour chaque urls on realise un ping -> mise des resultats en chaine de caractere
+    p = Net::Ping::HTTP.new n , 80, 5
     if p.ping?
       resultats +=  "#{n} est vivant\n" 
     else
@@ -43,16 +44,13 @@ class CtrlCheckLinks
     end
     }
     return resultats	
+   
   end
-  
-  def vueResult(resultats, nom)
+  #Controleur permettant d'afficher la vue secondaire d'affichage de resultat
+  def vueResult(resultats, nom) 
     v = VueResult.new(resultats, nom)
     v.getWindow.show_all
     Gtk.main
     
   end
-  
-  
-  
-
 end

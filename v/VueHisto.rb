@@ -1,7 +1,7 @@
-# Classe creation de la vue de sélection de fichier ou dossier
-class Vue1
+# Classe creation de la vue permettant d'aceder a l'historique
+class VueHisto
   # Creation de la vue
-  def initialize(ctrl, title, type)
+  def initialize(ctrl, title)
     @ctrl = ctrl
     #fenenetre generale
     @window = Gtk::Window.new
@@ -12,17 +12,12 @@ class Vue1
     bot = Gtk::HBox.new(false, 6)
     
     #creation label pour la saisie
-    lab = Gtk::Label.new('Chemin :')
+    lab = Gtk::Label.new('Chemin du fichier a rejouer :')
     bot.pack_start(lab, false, true, 6)
     
     #creation champ de saisie
-    #@nom = Gtk::Entry.new
-    if (type == 1)
-      @nom = Gtk::FileChooserButton.new("choisir un fichier", Gtk::FileChooser::ACTION_OPEN)
-    else
-      @nom = Gtk::FileChooserButton.new("choisir un dossier ", Gtk::FileChooser::ACTION_SELECT_FOLDER)
-    end
-    @nom.set_current_folder("../fichier")
+    @nom = Gtk::FileChooserButton.new("choisir un fichier", Gtk::FileChooser::ACTION_OPEN)
+    @nom.set_current_folder("../sauv")
     bot.pack_start(@nom, true, true)
     
     #creation bouton de validation
@@ -39,14 +34,14 @@ class Vue1
   end
   
   def getWindow #:nodoc:#
-      return @window
+    return @window
   end
   
   def getEntry #:nodoc:#
     return @chaine
   end
   
-  # Listener fermeture fenetre 
+  # Listener fermeture fenetre
   def listenerDestroy 
     @window.signal_connect('destroy') {
       @ctrl.destructionFen
@@ -62,24 +57,21 @@ class Vue1
       m = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,
 			    Gtk::MessageDialog::ERROR,
 			    Gtk::MessageDialog::BUTTONS_CLOSE,
-			    "Erreur : Veuillez saisir un fichier ou dossier !")
+			    "Erreur : Veuillez saisir un fichier !")
 	     m.run
 	     m.destroy  
     else
-      if(File.directory?(@chaine)) #si c'est un dossier utilisation du controleur adéquat
-          @ctrl.recupUrlsDoss(@chaine)
-      else
-      	if(File.exist?(@chaine))  #si c'est un fichier existant utilisation du controleur adéquat
-      	  @ctrl.recupUrls(@chaine)
-      	else #gestion saisie invalide
-      	  d = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,
-      			      Gtk::MessageDialog::ERROR,
-      			      Gtk::MessageDialog::BUTTONS_CLOSE,
-      			      "Erreur :  Fichier ou dossier inexistant !")
-      	  d.run
-      	  d.destroy  
-	       end
-      end
+    	if(File.exist?(@chaine))  #si c'est un fichier existant utilisation du controleur adéquat
+    	  @ctrl.rejouer(@chaine)
+    	else #gestion saisie invalide
+    	  d = Gtk::MessageDialog.new(Gtk::Window.new, Gtk::Dialog::DESTROY_WITH_PARENT,
+    			      Gtk::MessageDialog::ERROR,
+    			      Gtk::MessageDialog::BUTTONS_CLOSE,
+    			      "Erreur :  Fichier inexistant !")
+    	  d.run
+    	  d.destroy  
+       end
+      
     end
     }
   end
