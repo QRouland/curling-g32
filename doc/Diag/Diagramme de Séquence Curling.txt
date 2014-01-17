@@ -1,21 +1,26 @@
-﻿(with WEBDIAGRAM)
-
-
 title Diagramme de Séquence Curling
 
-Utilisateur->Système: Entre un nom
-Système->+directory?: Vérifie si dossier ou fichier
-directory?-->-Système: Type
-alt Type = fichier
-    Système->+recupUrls: Envoie du fichier ouvert
-    recupUrls-->-Système: Renvoie les urls trouvées
-    Système-->Utilisateur: Affiche les résultats
-else Type = dossier
-    Système->each: Envoie des fichiers
-    loop tant qu'il y a un fichier
-        each-->Système: Nom du fichier à traiter
-        Système->+recupUrls: Envoie du fichier ouvert
-        recupUrls-->-Système: Renvoie les urls trouvées
-        Système-->Utilisateur: Affiche les résultats
+alt Nouvelle recherche
+    Utilisateur->Interface: Entre un nom
+    Interface->+directory?: Vérifie si dossier ou fichier
+    directory?-->-Interface: Type
+    alt Type = fichier
+        Interface->+recupUrls: Envoie du fichier ouvert
+        recupUrls-->-Interface: Renvoie les urls trouvées
+        Interface-->Utilisateur: Affiche les résultats
+        Interface->Historique: Enregistrement des résultats
+    else Type = dossier
+        Interface->each: Envoie des fichiers
+        loop tant qu'il y a un fichier
+            each-->Interface: Nom du fichier à traiter
+            Interface->+recupUrls: Envoie du fichier ouvert
+            recupUrls-->-Interface: Renvoie les urls trouvées
+            Interface-->Utilisateur: Affiche les résultats
+            Interface->Historique: Enregistrement des résultats
+        end
     end
+else Rejouer un test
+    Utilisateur->Interface: Choix du test
+    Interface->+Historique: Nom du test
+    Historique-->-Utilisateur: Affiche les résultats
 end
