@@ -264,7 +264,16 @@ vue</p>
         <span class="ruby-ivar">@ctrl</span>.<span class="ruby-identifier">recupUrlsDoss</span>(<span class="ruby-ivar">@chaine</span>)
     <span class="ruby-keyword">else</span>
       <span class="ruby-keyword">if</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-ivar">@chaine</span>))  <span class="ruby-comment">#si c'est un fichier -&gt; existant utilisation du controleur adéquat</span>
-        <span class="ruby-ivar">@ctrl</span>.<span class="ruby-identifier">recupUrls</span>(<span class="ruby-ivar">@chaine</span>)
+        <span class="ruby-keyword">if</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-ivar">@chaine</span>)<span class="ruby-operator">==</span> <span class="ruby-string">&quot;.txt&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-ivar">@chaine</span>)<span class="ruby-operator">==</span> <span class="ruby-string">&quot;.html&quot;</span> )
+          <span class="ruby-ivar">@ctrl</span>.<span class="ruby-identifier">recupUrls</span>(<span class="ruby-ivar">@chaine</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">i</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Window</span>.<span class="ruby-identifier">new</span>, <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Dialog</span><span class="ruby-operator">::</span><span class="ruby-constant">DESTROY_WITH_PARENT</span>,
+                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">ERROR</span>,
+                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">BUTTONS_CLOSE</span>,
+                <span class="ruby-string">&quot;Erreur : fichier extension invalide !&quot;</span>)  
+          <span class="ruby-identifier">i</span>.<span class="ruby-identifier">run</span>
+          <span class="ruby-identifier">i</span>.<span class="ruby-identifier">destroy</span>  
+        <span class="ruby-keyword">end</span>
       <span class="ruby-keyword">else</span> <span class="ruby-comment">#gestion saisie invalide</span>
         <span class="ruby-identifier">d</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Window</span>.<span class="ruby-identifier">new</span>, <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Dialog</span><span class="ruby-operator">::</span><span class="ruby-constant">DESTROY_WITH_PARENT</span>,
                             <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">ERROR</span>,
