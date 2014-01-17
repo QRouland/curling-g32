@@ -13,6 +13,5 @@ Requiert :
 Lancement application :
 ruby c/Main.rb
 
-Emplacement fichiers :
-actuellement les fichiers que l'on souhaitent traiter doivent se trouver dans
-le dossier fichier/ (txt ou html)
+Le programme permet actuellement de verifier la validité les liens 
+HTTP/HTTPS présent dans un fichier txt ou html
